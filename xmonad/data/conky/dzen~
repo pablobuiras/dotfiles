@@ -1,0 +1,14 @@
+
+out_to_x no
+own_window no
+out_to_console yes
+update_interval 1.0
+short_units yes
+background yes
+ 
+TEXT
+^fg(\#ffee55) ^i(.xmonad/dzen2/wifi_01.xbm) ^fg(\#828a8c)${wireless_essid wlp3s0} \
+^fg(\#ffee55) ^i(.xmonad/dzen2/cpu.xbm) ^fg(\#828a8c) ${cpu cpu0}% \
+^fg(\#ffee55) ^i(.xmonad/dzen2/cpu.xbm) ^fg(\#828a8c) ${cpu cpu1}% \
+^fg(\#ffee55) ^i(.xmonad/dzen2/ac_01.xbm) ^fg(\#828a8c)${battery_short BAT0} \
+^fg(\#ffee55) ^i(.xmonad/dzen2/clock.xbm) ^fg(\#cdcdcd)${time %b %e %I:%M %P}

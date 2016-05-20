@@ -1,0 +1,26 @@
+#!/bin/bash
+# Get monitor width and height for proper Layout
+SCREEN_WIDTH=$(xrandr | grep -Po --color=never "(?<=\ connected )[\d]+(?=x[\d]+)")
+#SCREEN_HEIGHT=$(xrandr | grep -Po --color=never "(?<=\ connected )[\d]+x[\d]+" | sed -r "s/[0-9]+x//")
+
+SIDE=$1
+RIGHT_WIDTH=$2
+shift; shift
+
+arr=($SCREEN_WIDTH)
+SW=${arr[0]}
+
+HEIGHT=30
+
+# Layout
+if [ "$SIDE" == "L" ]
+then
+WIDTH=$(echo "$SW - $RIGHT_WIDTH" | bc)
+X_POS=0
+else
+WIDTH=$RIGHT_WIDTH
+X_POS=$(echo "$SW - $RIGHT_WIDTH" | bc)
+fi
+
+dzen2 -x $X_POS -h $HEIGHT -w $WIDTH "$@"
+
